@@ -1,15 +1,15 @@
 package emanuela_carrubba.crud_blog.entities;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+
+import java.util.Random;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @ToString
+@NoArgsConstructor
+
 public class BlogPost {
     private long id;
     private String categoria;
@@ -18,6 +18,14 @@ public class BlogPost {
     private String contenuto;
     private int tempoDiLettura;
 
+    public BlogPost(Long id, String categoria, String titolo, String cover, String contenuto, int tempoDiLettura) {
+        this.id = new Random().nextLong(1, 10000);
+        this.categoria = categoria;
+        this.titolo = titolo;
+        this.contenuto = contenuto;
+        this.tempoDiLettura = tempoDiLettura;
+        this.cover = "https://picsum.photos/200/300?random=" + this.id;
+    }
 
 
 }
