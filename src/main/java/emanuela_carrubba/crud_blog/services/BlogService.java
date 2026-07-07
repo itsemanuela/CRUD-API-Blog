@@ -24,10 +24,9 @@ public class BlogService {
    }
 
 
-    public BlogPost salvaPost(BlogPost blogPost) {
-       BlogPost post = new BlogPost();
-this.blogPosts.add(blogPost);
-        return post;
+    public BlogPost salvaPost(BlogPost nuovoPost) {
+  this.blogPosts.add(nuovoPost);
+  return nuovoPost;
     }
 
 public BlogPost findByTitle(String title) {

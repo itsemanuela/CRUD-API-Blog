@@ -25,16 +25,18 @@ public class BlogController {
 
     }
 
-@PostMapping
-@ResponseStatus(HttpStatus.CREATED)
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public BlogPost creaPost(@RequestBody BlogPayload blogPayload) {
-BlogPost newPost = new BlogPost();
-newPost.setTitolo(blogPayload.getTitolo());
-newPost.setCategoria(blogPayload.getCategoria());
-newPost.setContenuto(blogPayload.getContenuto());
-newPost.setTempoDiLettura(blogPayload.getTempoDiLettura());
 
-return this.blogService.salvaPost(newPost);
-}
+        BlogPost newPost = new BlogPost(
+                blogPayload.getCategoria(),
+                blogPayload.getTitolo(),
+                blogPayload.getContenuto(),
+                blogPayload.getTempoDiLettura()
+        );
+
+        return this.blogService.salvaPost(newPost);
+    }
 
 }
